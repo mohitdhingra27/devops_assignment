@@ -1,0 +1,33 @@
+pipeline {
+   agent {label 'slave1'}
+   parameters {
+       choice(
+            name: 'LOCATION',
+            choices: ['westeurope', 'southeastAsia'],
+            description: 'Location to be operated'
+        )
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['dev', 'prod', 'pre_prod'],,
+            description: 'Environment to be operated'
+        )
+        choice(
+            name: 'OPERATION',
+            choices: ['apply', 'destroy'],
+            description: 'Operation type'
+        )
+   }
+   
+   stages {
+        stage('Plan') {
+            steps {
+                script {
+                    sh """
+                        terraform plan --var-file="environments/azure/${LOCATION}/${ENVIRONMENT}/environment.tfvars" -out=myplan
+                        terraform apply -auto-approve -lock-timeout=600s myplan
+                    """
+                }
+            }
+        }
+   }
+}   
