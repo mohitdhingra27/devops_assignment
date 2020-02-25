@@ -1,0 +1,60 @@
+Steps to run get_metadata_from_inside.sh are pretty simple. For this, you have to be logged in to the AWS server for which you want to check meta data.
+./get_metadata_from_inside.sh ami-id
+
+Only below mentioned things can be passed to check.
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hostname
+iam/
+instance-action
+instance-id
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+services/
+
+
+
+----------------------------------------------------
+
+While i was creating the second script (get_metadata_from_outside.sh), I realized that getting the meta data of the server when you are not logged in to the aws instance
+is quite some work. So this script is incomplete, but will take some time to complete and cant be completed in 30 mins. The main thing to take care is how you can get the data that was produced by the curl command to your local machine.
+
+./get_metadata_from_outside.sh -u ec2-user -k key.pem -i 1.2.3.4 -d ami-id
+
+--------------------------------------------
+
+There is another option that we can use and that will be installing aws cli on your machine, but you cant get the entire meta data
+of your aws machine using that. Possible things that we can get are
+Possible values:
+
+instanceType
+kernel
+ramdisk
+userData
+disableApiTermination
+instanceInitiatedShutdownBehavior
+rootDeviceName
+blockDeviceMapping
+productCodes
+sourceDestCheck
+groupSet
+ebsOptimized
+sriovNetSupport
+enaSupport
+
+For e.g aws ec2 describe-instance-attribute --instance-id i-123jhjh88 --attribute instanceType
+
