@@ -1,0 +1,11 @@
+
+In the starting, i didnt understand this questions clearly and then asked Reta to provide more description about it. But she also
+didnt have any more details. Then i answere it based on whatever i understood.
+
+In this assignment, I tried to create the resource group and VNET on three differnet environments using the same piece of code using Terraform.
+You need to run the jenkins build by passing the location and subscription. It will fetch the details for that environment from the 
+environment.tfvars file.
+
+So using this setup, you can setup three differnet environments using the same code base. You just need to pass different value while running
+the jenkins build.
+
