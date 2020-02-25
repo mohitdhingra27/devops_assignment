@@ -1,11 +1,11 @@
 
-In the starting, i didnt understand this questions clearly and then asked Reta to provide more description about it. But she also
-didnt have any more details. Then i answere it based on whatever i understood.
+
+Question:  A 3 tier environment is a common setup. Use a tool of your choosing/familiarity create these resources. Please remember we will not be judged on the outcome but more focusing on the approach, style and reproducibility.
+
+In the starting, i didnt understand this questions clearly and then asked Reta to provide more description about it. But she also didnt have any more details. Then i answere it based on whatever i understood.
 
 In this assignment, I tried to create the resource group and VNET on three differnet environments using the same piece of code using Terraform.
-You need to run the jenkins build by passing the location and subscription. It will fetch the details for that environment from the 
-environment.tfvars file.
+You need to run the jenkins build by passing the location and subscription. It will fetch the details for that environment from the environment.tfvars file.
 
-So using this setup, you can setup three differnet environments using the same code base. You just need to pass different value while running
-the jenkins build.
+So using this setup, you can setup three differnet environments using the same code base. You just need to pass different value while running the jenkins build.
 
